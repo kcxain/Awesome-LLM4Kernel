@@ -2,6 +2,8 @@
 
 <div align="center">
 
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+[![Paper](https://img.shields.io/badge/Paper-15-green.svg)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Last Commit](https://img.shields.io/github/last-commit/kcxain/Awesome-LLM4Kernel)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Contribution Welcome](https://img.shields.io/badge/Contributions-welcome-blue)]()
 
@@ -20,7 +22,7 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 
 ## 📖 Benchmarks
 
-- **KernelBench: Can LLMs Write Efficient GPU Kernels?** [![Paper](https://img.shields.io/badge/arXiv-2025.02-red)](https://arxiv.org/pdf/2502.10517) [![Code](https://img.shields.io/github/stars/ScalingIntelligence/KernelBench)](https://github.com/ScalingIntelligence/KernelBench)  
+- **KernelBench: Can LLMs Write Efficient GPU Kernels?** [![Paper](https://img.shields.io/badge/ICML-25-green)](https://arxiv.org/pdf/2502.10517) [![Code](https://img.shields.io/github/stars/ScalingIntelligence/KernelBench)](https://github.com/ScalingIntelligence/KernelBench)  
 	- Anne Ouyang, Simon Guo, Simran Arora, Alex L. Zhang, William Hu, Christopher Ré, Azalia Mirhoseini  
 	- **Institution:** Stanford University  
 	- **Task:** Torch -> CUDA  
@@ -46,13 +48,23 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 - **robust-kbench: Towards Robust Agentic CUDA Kernel Benchmarking, Verification, and Optimization** [![Paper](https://img.shields.io/badge/arXiv-25.09-red)](https://arxiv.org/pdf/2509.14279) [![Code](https://img.shields.io/github/stars/SakanaAI/robust-kbench)](https://github.com/SakanaAI/robust-kbench)  
 	- Robert Tjarko Lange, Qi Sun, Aaditya Prasad, Maxence Faldor, Yujin Tang, David Ha  
 	- **Institution:** Sakana AI  
-	- **Task:** Torch -> CUDA  
+	- **Task:** Torch -> CUDA
+
+- **gpuFLOPBench: Counting Without Running: Evaluating LLMs’ Reasoning About Code Complexity** [![Paper](https://img.shields.io/badge/arXiv-25.12-red)](https://arxiv.org/abs/2512.04355) [![Code](https://img.shields.io/github/stars/Scientific-Computing-Lab/gpuFLOPBench)](https://github.com/Scientific-Computing-Lab/gpuFLOPBench)  
+	- Gregory Bolet, Giorgis Georgakoudis, Konstantinos Parasyris, Harshitha Menon, Niranjan Hasabnis, Kirk W. Cameron, Gal Oren
+	- **Institution:** Stanford University  
+	- **Task:** CUDA -> FLOPs  
 
 ## 🔧 Method
 
 ### Agent based pipelines
 
-- **QiMeng-Xpiler: Transcompiling Tensor Programs for Deep Learning Systems with a Neural-Symbolic Approach** [![Paper](https://img.shields.io/badge/OSDI-25-green)](https://arxiv.org/abs/2505.02146) [![Code](https://img.shields.io/github/stars/chris-chow/QiMeng-Attention)](https://github.com/QiMeng-IPRC/QiMeng-Xpiler)  
+- **STARK: Strategic Team of Agents for Refining Kernels** [![Paper](https://img.shields.io/badge/arXiv-25.10-red)](https://arxiv.org/pdf/2510.16996)
+	- Juncheng Dong, Yang Yang, Tao Liu, Yang Wang, Feng Qi, Vahid Tarokh, Kaushik Rangadurai, Shuang Yang
+	- **Institution:** Meta Ranking AI Research
+	- **Task:** Torch -> CUDA
+
+- **QiMeng-Xpiler: Transcompiling Tensor Programs for Deep Learning Systems with a Neural-Symbolic Approach** [![Paper](https://img.shields.io/badge/OSDI-25-green)](https://arxiv.org/abs/2505.02146) [![Code](https://img.shields.io/github/stars/QiMeng-IPRC/QiMeng-Xpiler)](https://github.com/QiMeng-IPRC/QiMeng-Xpiler)  
 	- Shouyang Dong, Yuanbo Wen, Jun Bi, Di Huang, Jiaming Guo, Jianxing Xu, Ruibai Xu, Xinkai Song, Yifan Hao, Xuehai Zhou, Tianshi Chen, Qi Guo, Yunji Chen
 	- **Institution:** University of Science and Technology of China, Cambricon Technologies, Institute of Computing Technology, Institute of Software
 	- **Task:** CUDA <-> BangC <-> Hip <-> VNNI  
@@ -70,10 +82,14 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 - **QiMeng-GEMM: Automatically Generating High-Performance Matrix Multiplication Code by Exploiting Large Language Models** [![Paper](https://img.shields.io/badge/AAAI-25-green)](https://ojs.aaai.org/index.php/AAAI/article/view/34461) [![Code](https://img.shields.io/github/stars/chris-chow/QiMeng-GEMM)](https://github.com/chris-chow/QiMeng-GEMM)  
 	- Qirui Zhou, Yuanbo Wen, Ruizhi Chen, Ke Gao, Weiqiang Xiong, Ling Li, Qi Guo, Yanjun Wu, Yunji Chen 
 	- **Institution:** Institute of Computing Technology, Institute of Software
-	- **Task:** NL -> CUDA (GEMM)  
-
+	- **Task:** NL -> CUDA (GEMM)
 
 ### Domain specific Models
+
+- **AutoTriton: Automatic Triton Programming with Reinforcement Learning in LLMs** [![Paper](https://img.shields.io/badge/arXiv-25.07-red)](https://arxiv.org/abs/2507.05687) [![Code](https://img.shields.io/github/stars/AI9Stars/AutoTriton)](https://github.com/AI9Stars/AutoTriton)  
+	- Shangzhan Li, Zefan Wang, Ye He, Yuxuan Li, Qi Shi, Jianling Li, Yonggang Hu, Wanxiang Che, Xu Han, Zhiyuan Liu, Maosong Sun
+	- **Institution:** Tsinghua University
+	- **Task:** Torch -> Triton
 
 - **QiMeng-MuPa: Mutual-Supervised Learning for Sequential-to-Parallel Code Translation** [![Paper](https://img.shields.io/badge/NeurIPS-25-green)](https://arxiv.org/pdf/2506.11153) [![Code](https://img.shields.io/github/stars/QiMeng-IPRC/QiMeng-MuPa)](https://github.com/QiMeng-IPRC/QiMeng-MuPa)  
 	- Changxin Ke, Rui Zhang, Shuo Wang, Li Ding, Guangli Li, Yuanbo Wen, Shuoming Zhang, Ruiyuan Xu, Jin Qin, Jiaming Guo, Chenxi Wang, Ling Li, Qi Guo, Yunji Chen
@@ -87,6 +103,10 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 	- **Institution:** Institute of Software, Institute of Computing Technology
 	- **Task:** Torch -> Triton
 
+- **Kevin: Multi-Turn RL for Generating CUDA Kernels** [![Paper](https://img.shields.io/badge/arXiv-25.07-red)](https://arxiv.org/abs/2507.11948)
+	- Carlo Baronio, Pietro Marsella, Ben Pan, Simon Guo, Silas Alberti
+	- **Institution:** Stanford University
+	- **Task:** Torch -> CUDA
 
 ## Contribution
 
