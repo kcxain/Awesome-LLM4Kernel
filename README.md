@@ -30,7 +30,7 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 - **TritonBench: Benchmarking Large Language Model Capabilities for Generating Triton Operators** [![Paper](https://img.shields.io/badge/ACL_findings-25-green)](https://aclanthology.org/2025.findings-acl.1183.pdf) [![Code](https://img.shields.io/github/stars/thunlp/TritonBench)](https://github.com/thunlp/TritonBench)  
 	- Jianling Li, ShangZhan Li, Zhenye Gao, Qi Shi, Yuxuan Li, Zefan Wang, Jiacheng Huang, WangHaojie WangHaojie, Jianrong Wang, Xu Han, Zhiyuan Liu, Maosong Sun  
 	- **Institution:** Tianjin University, Tsinghua University  
-	- **Task:** Torch | NL -> CUDA  
+	- **Task:** Torch | NL -> Triton  
 
 - **ComputeEval: Evaluating Large Language Models for CUDA Code Generation** [![Code](https://img.shields.io/github/stars/NVIDIA/compute-eval)](https://github.com/NVIDIA/compute-eval)  
 	- **Institution:** NVIDIA  
