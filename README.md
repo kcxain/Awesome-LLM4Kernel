@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-[![Paper](https://img.shields.io/badge/Paper-15-green.svg)](https://github.com/kcxain/Awesome-LLM4Kernel)
+[![Paper](https://img.shields.io/badge/Paper-15+-green.svg)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Last Commit](https://img.shields.io/github/last-commit/kcxain/Awesome-LLM4Kernel)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Contribution Welcome](https://img.shields.io/badge/Contributions-welcome-blue)]()
 
@@ -12,9 +12,10 @@
 
 GPU kernels are central to modern compute stacks and directly determine training and inference efficiency. Kernel development is difficult because it requires hardware expertise and iterative refinement with multi step tool feedback. Since Stanford released KernelBench in February 2025, the LLM4Kernel field has grown rapidly, with increasing interest in using large language models to support or automate kernel generation, optimization, and verification.
 
-This project provides a continuous and comprehensive survey of the field, covering both benchmarks and methods. On the methodological side, we categorize existing work into three major directions:
+This project provides a continuous and comprehensive survey of the field, covering both benchmarks and methods. On the methodological side, we categorize existing work into four major directions:
 
- - Agent based pipelines
+ - Search-based piplines
+ - Agent-based pipelines
  - Domain specific Models
  - Agentic RL
 
@@ -57,7 +58,19 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 
 ## 🔧 Method
 
-### Agent based pipelines
+### Search-based piplines
+
+- **KernelBand: Boosting LLM-based Kernel Optimization with a Hierarchical and Hardware-aware Multi-armed Bandit** [![Paper](https://img.shields.io/badge/aiXiv-25.11-red)](https://arxiv.org/pdf/2511.18868)
+	- Dezhi Ran, Shuxiao Xie, Mingfang Ji, Ziyue Hua, Mengzhou Wu, Yuan Cao, Yuzhe Guo, Yu Hao, Linyi Li, Yitao Hu, Tao Xie
+	- **Institution:** Peking University
+	- **Task:** Torch -> Triton
+
+### Agent-based pipelines
+
+- **KernelFalcon: Autonomous GPU Kernel Generation via Deep Agents** [![Paper](https://img.shields.io/badge/blog-25.11-blue)](https://pytorch.org/blog/kernelfalcon-autonomous-gpu-kernel-generation-via-deep-agents/) [![Code](https://img.shields.io/github/stars/meta-pytorch/KernelAgent)](https://github.com/meta-pytorch/KernelAgent)  
+	- Laura Wang
+	- **Institution:** PyTorch Team at Meta
+	- **Task:** Torch -> Triton
 
 - **STARK: Strategic Team of Agents for Refining Kernels** [![Paper](https://img.shields.io/badge/arXiv-25.10-red)](https://arxiv.org/pdf/2510.16996)
 	- Juncheng Dong, Yang Yang, Tao Liu, Yang Wang, Feng Qi, Vahid Tarokh, Kaushik Rangadurai, Shuang Yang
