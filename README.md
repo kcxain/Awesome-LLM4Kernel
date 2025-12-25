@@ -67,6 +67,11 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 
 ### Agent-based pipelines
 
+- **Agentic Operator Generation for ML ASICs** [![Paper](https://img.shields.io/badge/aiXiv-25.12-red)](https://www.arxiv.org/abs/2512.10977)
+	- Alec M. Hammond, Aram Markosyan, Aman Dontula, Simon Mahns, Zacharias Fisches, Dmitrii Pedchenko, Keyur Muzumdar, Natacha Supper, Mark Saroufim, Joe Isaacson, Laura Wang, Warren Hunt, Kaustubh Gondkar, Roman Levenstein, Gabriel Synnaeve, Richard Li, Jacob Kahn, Ajit Mathews
+	- **Institution:** Meta
+	- **Task:** torch ATen Docstring -> Triton
+
 - **KernelFalcon: Autonomous GPU Kernel Generation via Deep Agents** [![Paper](https://img.shields.io/badge/blog-25.11-blue)](https://pytorch.org/blog/kernelfalcon-autonomous-gpu-kernel-generation-via-deep-agents/) [![Code](https://img.shields.io/github/stars/meta-pytorch/KernelAgent)](https://github.com/meta-pytorch/KernelAgent)  
 	- Laura Wang
 	- **Institution:** PyTorch Team at Meta
