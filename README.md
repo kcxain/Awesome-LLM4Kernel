@@ -16,7 +16,7 @@ This project provides a continuous and comprehensive survey of the field, coveri
 
  - Search-based piplines
  - Agent-based pipelines
- - Domain specific Models
+ - Domain-specific Models
  - Agentic RL
 
 We include all relevant top conference papers, arXiv preprints, open source projects, technical reports, and blogs, aiming to build the most complete resource hub for LLM4Kernel research.
@@ -67,7 +67,12 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 
 ### Agent-based pipelines
 
-- **Agentic Operator Generation for ML ASICs** [![Paper](https://img.shields.io/badge/aiXiv-25.12-red)](https://www.arxiv.org/abs/2512.10977)
+- **AKG kernel Agent: A Multi-Agent Framework for Cross-Platform Kernel Synthesis** [![Paper](https://img.shields.io/badge/aiXiv-25.12-red)](https://arxiv.org/pdf/2512.23424v1) [![Code](https://img.shields.io/github/stars/mindspore-ai/akg)](https://github.com/mindspore-ai/akg/blob/master/aikg/README_CN.md)  
+	- Jinye Du, Quan Yuan, Zuyao Zhang, Yanzhi Yi, Jiahui Hu, Wangyi Chen, Yiyang Zhu, Qishui Zheng, Wenxiang Zou, Xiangyu Chang, Zuohe Zheng, Zichun Ye, Chao Liu, Shanni Li, Renwei Zhang, Yiping Deng, Xinwei Hu, Xuefeng Jin, Jie Zhao
+	- **Institution:** Huawei
+	- **Task:** Torch -> CUDA | Triton | Tilelang | AscendC
+
+- **TritorX: Agentic Operator Generation for ML ASICs** [![Paper](https://img.shields.io/badge/aiXiv-25.12-red)](https://www.arxiv.org/abs/2512.10977)
 	- Alec M. Hammond, Aram Markosyan, Aman Dontula, Simon Mahns, Zacharias Fisches, Dmitrii Pedchenko, Keyur Muzumdar, Natacha Supper, Mark Saroufim, Joe Isaacson, Laura Wang, Warren Hunt, Kaustubh Gondkar, Roman Levenstein, Gabriel Synnaeve, Richard Li, Jacob Kahn, Ajit Mathews
 	- **Institution:** Meta
 	- **Task:** torch ATen Docstring -> Triton
@@ -102,7 +107,7 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 	- **Institution:** Institute of Computing Technology, Institute of Software
 	- **Task:** NL -> CUDA (GEMM)
 
-### Domain specific Models
+### Domain-specific Models
 
 - **AutoTriton: Automatic Triton Programming with Reinforcement Learning in LLMs** [![Paper](https://img.shields.io/badge/arXiv-25.07-red)](https://arxiv.org/abs/2507.05687) [![Code](https://img.shields.io/github/stars/AI9Stars/AutoTriton)](https://github.com/AI9Stars/AutoTriton)  
 	- Shangzhan Li, Zefan Wang, Ye He, Yuxuan Li, Qi Shi, Jianling Li, Yonggang Hu, Wanxiang Che, Xu Han, Zhiyuan Liu, Maosong Sun
