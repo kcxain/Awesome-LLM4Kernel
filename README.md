@@ -23,6 +23,11 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 
 ## 📖 Benchmarks
 
+- **FlashInfer-Bench: Building the Virtuous Cycle for AI-driven LLM Systems** [![Paper](https://img.shields.io/badge/arXiv-26.01-red)](https://arxiv.org/abs/2601.00227v1) [![Code](https://img.shields.io/github/stars/flashinfer-ai/flashinfer-bench)](https://github.com/flashinfer-ai/flashinfer-bench)  
+	- Shanli Xing, Yiyan Zhai, Alexander Jiang, Yixin Dong, Yong Wu, Zihao Ye, Charlie Ruan, Yingyi Huang, Yineng Zhang, Liangsheng Yin, Aksara Bayyapu, Luis Ceze, Tianqi Chen
+	- **Institution:** University of Washington, Carnegie Mellon University, NVIDIA
+	- **Task:** CUDA/Triton Optimization
+
 - **KernelBench: Can LLMs Write Efficient GPU Kernels?** [![Paper](https://img.shields.io/badge/ICML-25-green)](https://arxiv.org/pdf/2502.10517) [![Code](https://img.shields.io/github/stars/ScalingIntelligence/KernelBench)](https://github.com/ScalingIntelligence/KernelBench)  
 	- Anne Ouyang, Simon Guo, Simran Arora, Alex L. Zhang, William Hu, Christopher Ré, Azalia Mirhoseini  
 	- **Institution:** Stanford University  
