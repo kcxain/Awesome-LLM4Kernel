@@ -124,6 +124,11 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 	- **Institution:** Institute of Computing Technology
 	- **Task:** C -> CUDA
 
+ - **AscendKernelGen: A Systematic Study of LLM-Based Kernel Generation for Neural Processing Units** [![Paper](https://img.shields.io/badge/arXiv-26.01-red)](https://arxiv.org/abs/2601.07160)
+ 	- Xinzi Cao, Jianyang Zhai, Pengfei Li, Zhiheng Hu, Cen Yan, Bingxu Mu, Guanghuan Fang, Bin She, Jiayu Li, Yihan Su, Dongyang Tao, Xiansong Huang, Fan Xu, Feidiao Yang, Yao Lu, Chang-Dong Wang, Yutong Lu, Weicheng Xue, Bin Zhou, Yonghong Tian
+	- **Institution:** Pengcheng Laboratory, HUAWEI, Sun Yat-sen University
+	- **Task:** Torch -> AscendC
+
 ### Agentic RL
 
 - **QiMeng-Kernel: Macro-Thinking Micro-Coding Paradigm for LLM-Based High-Performance GPU Kernel Generation** [![Paper](https://img.shields.io/badge/AAAI-26-green)](https://arxiv.org/abs/2511.20100) [![Code](https://img.shields.io/github/stars/QiMeng-IPRC/QiMeng-Kernel)](https://github.com/QiMeng-IPRC/QiMeng-Kernel)  
