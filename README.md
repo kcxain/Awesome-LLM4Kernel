@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-[![Paper](https://img.shields.io/badge/Paper-15+-green.svg)](https://github.com/kcxain/Awesome-LLM4Kernel)
+[![Paper](https://img.shields.io/badge/Paper-29-green.svg)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Last Commit](https://img.shields.io/github/last-commit/kcxain/Awesome-LLM4Kernel)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Contribution Welcome](https://img.shields.io/badge/Contributions-welcome-blue)]()
 
@@ -65,12 +65,36 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 
 ### Search-based piplines
 
+- **OptiML: An End-to-End Framework for Program Synthesis and CUDA Kernel Optimization**  
+  [![Paper](https://img.shields.io/badge/arXiv-2602.12305-red)](https://arxiv.org/abs/2602.12305)  
+	- Arijit Bhattacharjee, Heng Ping, Son Vu Le, Paul Bogdan, Nesreen K. Ahmed, Ali Jannesari  
+	- **Institution:** Iowa State University  
+	- **Task:** End-to-End CUDA Generation + MCTS-based Optimization
+
+- **K-Search: LLM Kernel Generation via Co-Evolving Intrinsic World Model**  
+  [![Paper](https://img.shields.io/badge/arXiv-2602.19128-red)](https://arxiv.org/abs/2602.19128) [![Code](https://img.shields.io/github/stars/caoshiyi/K-Search)](https://github.com/caoshiyi/K-Search)
+	- Shiyi Cao, Ziming Mao, Joseph E. Gonzalez, Ion Stoica  
+	- **Institution:** UC Berkeley  
+	- **Task:** CUDA Kernel Optimization
+
 - **KernelBand: Boosting LLM-based Kernel Optimization with a Hierarchical and Hardware-aware Multi-armed Bandit** [![Paper](https://img.shields.io/badge/aiXiv-25.11-red)](https://arxiv.org/pdf/2511.18868)
 	- Dezhi Ran, Shuxiao Xie, Mingfang Ji, Ziyue Hua, Mengzhou Wu, Yuan Cao, Yuzhe Guo, Yu Hao, Linyi Li, Yitao Hu, Tao Xie
 	- **Institution:** Peking University
 	- **Task:** Torch -> Triton
 
 ### Agent-based pipelines
+
+- **AscendCraft: Automatic Ascend NPU Kernel Generation via DSL-Guided Transcompilation**  
+  [![Paper](https://img.shields.io/badge/arXiv-2601.22760-red)](https://arxiv.org/abs/2601.22760)  
+	- Zhongzhen Wen, Shudi Shao, Zhong Li, Yu Ge, Tongtong Xu, Yuanyi Lin, Tian Zhang  
+	- **Institution:** Nanjing University  
+	- **Task:** Torch | NL -> AscendC
+
+- **KernelBlaster: Continual Cross-Task CUDA Optimization via Memory-Augmented In-Context Reinforcement Learning**  
+  [![Paper](https://img.shields.io/badge/arXiv-2602.14293-red)](https://arxiv.org/abs/2602.14293)  
+	- Kris Shengjun Dong, Sahil Modi, Dima Nikiforov, Sana Damani, Edward Lin, Siva Kumar Sastry Hari, Christos Kozyrakis  
+	- **Institution:** NVIDIA, UC Berkeley  
+	- **Task:** CUDA Optimization
 
 - **AKG kernel Agent: A Multi-Agent Framework for Cross-Platform Kernel Synthesis** [![Paper](https://img.shields.io/badge/aiXiv-25.12-red)](https://arxiv.org/pdf/2512.23424v1) [![Code](https://img.shields.io/github/stars/mindspore-ai/akg)](https://github.com/mindspore-ai/akg/blob/master/aikg/README_CN.md)  
 	- Jinye Du, Quan Yuan, Zuyao Zhang, Yanzhi Yi, Jiahui Hu, Wangyi Chen, Yiyang Zhu, Qishui Zheng, Wenxiang Zou, Xiangyu Chang, Zuohe Zheng, Zichun Ye, Chao Liu, Shanni Li, Renwei Zhang, Yiping Deng, Xinwei Hu, Xuefeng Jin, Jie Zhao
@@ -114,6 +138,12 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 
 ### Domain-specific Models
 
+- **DICE: Diffusion Large Language Models Excel at Generating CUDA Kernels**  
+  [![Paper](https://img.shields.io/badge/arXiv-2602.11715-red)](https://arxiv.org/abs/2602.11715)  
+	- Haolei Bai, Lingcheng Kong, Xueyi Chen, Jianmian Wang, Zhiqiang Tao, Huan Wang  
+	- **Institution:** Westlake University  
+	- **Task:** Torch -> CUDA
+
 - **AutoTriton: Automatic Triton Programming with Reinforcement Learning in LLMs** [![Paper](https://img.shields.io/badge/arXiv-25.07-red)](https://arxiv.org/abs/2507.05687) [![Code](https://img.shields.io/github/stars/AI9Stars/AutoTriton)](https://github.com/AI9Stars/AutoTriton)  
 	- Shangzhan Li, Zefan Wang, Ye He, Yuxuan Li, Qi Shi, Jianling Li, Yonggang Hu, Wanxiang Che, Xu Han, Zhiyuan Liu, Maosong Sun
 	- **Institution:** Tsinghua University
@@ -130,6 +160,18 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 	- **Task:** Torch -> AscendC
 
 ### Agentic RL
+
+- **Dr. Kernel: Reinforcement Learning Done Right for Triton Kernel Generations**  
+  [![Paper](https://img.shields.io/badge/arXiv-2602.05885-red)](https://arxiv.org/abs/2602.05885) [![Code](https://img.shields.io/github/stars/hkust-nlp/KernelGYM)](https://github.com/hkust-nlp/KernelGYM)  
+	- Wei Liu, Jiawei Xu, Yingru Li, Longtao Zheng, Tianjian Li, Qian Liu, Junxian He  
+	- **Institution:** HKUST, TikTok  
+	- **Task:** Torch -> Triton
+
+- **Fine-Tuning GPT-5 for GPU Kernel Generation**  
+  [![Paper](https://img.shields.io/badge/arXiv-2602.11000-red)](https://arxiv.org/abs/2602.11000)  
+	- Ali Tehrani, Yahya Emara, Essam Wissam, Wojciech Paluch, Waleed Atallah, Łukasz Dudziak, Mohamed S. Abdelfattah  
+	- **Institution:** Makora  
+	- **Task:** Torch -> CUDA
 
 - **QiMeng-Kernel: Macro-Thinking Micro-Coding Paradigm for LLM-Based High-Performance GPU Kernel Generation** [![Paper](https://img.shields.io/badge/AAAI-26-green)](https://arxiv.org/abs/2511.20100) [![Code](https://img.shields.io/github/stars/QiMeng-IPRC/QiMeng-Kernel)](https://github.com/QiMeng-IPRC/QiMeng-Kernel)  
 	- Xinguo Zhu, Shaohui Peng, Jiaming Guo, Yunji Chen, Qi Guo, Yuanbo Wen, Hang Qin, Ruizhi Chen, Qirui Zhou, Ke Gao, Yanjun Wu, Chen Zhao, Ling Li
