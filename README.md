@@ -65,6 +65,12 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 
 ### Search-based piplines
 
+- **KernelFoundry: Hardware-aware evolutionary GPU kernel optimization**  
+  [![Paper](https://img.shields.io/badge/arXiv-26.03-red)](https://arxiv.org/abs/2603.12440)  
+	- Nina Wiedemann, Quentin Leboutet, Michael Paulitsch, Diana Wofk, Benjamin Ummenhofer  
+	- **Institution:** University of Freiburg, Infineon Technologies AG  
+	- **Task:** CUDA | SYCL Kernel Optimization
+
 - **OptiML: An End-to-End Framework for Program Synthesis and CUDA Kernel Optimization**  
   [![Paper](https://img.shields.io/badge/arXiv-26.02-red)](https://arxiv.org/abs/2602.12305)  
 	- Arijit Bhattacharjee, Heng Ping, Son Vu Le, Paul Bogdan, Nesreen K. Ahmed, Ali Jannesari  
@@ -83,6 +89,24 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 	- **Task:** Torch -> Triton
 
 ### Agent-based pipelines
+
+- **KernelSkill: A Multi-Agent Framework for GPU Kernel Optimization**  
+  [![Paper](https://img.shields.io/badge/arXiv-26.03-red)](https://arxiv.org/abs/2603.10085) [![Code](https://img.shields.io/github/stars/0satan0/KernelMem)](https://github.com/0satan0/KernelMem)  
+	- Qitong Sun, Jun Han, Tianlin Li, Zhe Tang, Sheng Chen, Fei Yang, Aishan Liu, Xianglong Liu, Yang Liu  
+	- **Institution:** Beihang University, Beijing Academy of Artificial Intelligence  
+	- **Task:** Torch -> CUDA
+
+- **Making LLMs Optimize Multi-Scenario CUDA Kernels Like Experts**  
+  [![Paper](https://img.shields.io/badge/arXiv-26.03-red)](https://arxiv.org/abs/2603.07169)  
+	- Yuxuan Han, Meng-Hao Guo, Zhengning Liu, Wenguang Chen, Shi-Min Hu  
+	- **Institution:** Tsinghua University  
+	- **Task:** CUDA Kernel Optimization (Multi-Scenario)
+
+- **CUCo: An Agentic Framework for Compute and Communication Co-design**  
+  [![Paper](https://img.shields.io/badge/arXiv-26.03-red)](https://arxiv.org/abs/2603.02376)  
+	- Bodun Hu, Yoga Sri Varshan V, Saurabh Agarwal, Aditya Akella  
+	- **Institution:** University of Wisconsin-Madison  
+	- **Task:** Compute + Communication CUDA Co-optimization
 
 - **AscendCraft: Automatic Ascend NPU Kernel Generation via DSL-Guided Transcompilation**  
   [![Paper](https://img.shields.io/badge/arXiv-26.01-red)](https://arxiv.org/abs/2601.22760)  
