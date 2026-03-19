@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM4Kernel Works Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__inner">
+        <p class="eyebrow">Awesome-LLM4Kernel</p>
+        <h1>Research Works Explorer</h1>
+        <p class="subtitle">自动从 README 抽取并展示全部工作，按类别浏览，并一键查看 Paper / Code / Blog 等多源信息。</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="controls" aria-label="筛选区">
+        <label>
+          分类
+          <select id="categoryFilter">
+            <option value="all">全部</option>
+          </select>
+        </label>
+        <label>
+          来源类型
+          <select id="sourceFilter">
+            <option value="all">全部</option>
+            <option value="paper">Paper</option>
+            <option value="code">Code</option>
+            <option value="blog">Blog</option>
+          </select>
+        </label>
+        <label class="search">
+          关键词
+          <input id="searchInput" type="search" placeholder="搜索标题、作者、机构、任务" />
+        </label>
+      </section>
+
+      <section id="summary" class="summary"></section>
+      <section id="worksGrid" class="works-grid" aria-live="polite"></section>
+    </main>
+
+    <template id="workCardTemplate">
+      <article class="card">
+        <div class="card__header">
+          <p class="card__category"></p>
+          <h2 class="card__title"></h2>
+        </div>
+        <div class="card__meta"></div>
+        <div class="card__sources"></div>
+      </article>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

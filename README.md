@@ -230,3 +230,20 @@ If you find this work useful, welcome to cite us.
   url={https://github.com/kcxain/Awesome-LLM4Kernel}
 }
 ```
+
+## 🌐 Static Website
+
+A clean academic-style static website is provided in `site/`.
+
+- Auto-parses all works from `README.md`
+- Supports multi-source viewing (`Paper` / `Code` / `Blog`)
+- Supports category and keyword filtering
+
+Run locally:
+
+```bash
+cd site
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000` in your browser.
