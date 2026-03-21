@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome-LLM4Kernel</title>
+  <meta
+    name="description"
+    content="An index for browsing LLM4Kernel papers by category, keywords, task, and links."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --ink: #141413;
+      --paper: #faf9f5;
+      --stone: #e8e6dc;
+      --muted: #b0aea5;
+      --accent: #d97757;
+      --accent-blue: #6a9bcc;
+      --accent-green: #788c5d;
+      --card: rgba(250, 249, 245, 0.78);
+      --border: rgba(20, 20, 19, 0.1);
+      --shadow: 0 24px 60px rgba(20, 20, 19, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 999px;
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Lora", Georgia, serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(217, 119, 87, 0.16), transparent 30%),
+        radial-gradient(circle at 85% 10%, rgba(106, 155, 204, 0.12), transparent 22%),
+        linear-gradient(180deg, #f4f1e9 0%, var(--paper) 32%, #f6f3ec 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(250, 249, 245, 0.78);
+      border-bottom: 1px solid rgba(20, 20, 19, 0.08);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Poppins", Arial, sans-serif;
+    }
+
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background:
+        linear-gradient(135deg, var(--accent), #e4ad84),
+        var(--accent);
+      box-shadow:
+        18px 0 0 rgba(106, 155, 204, 0.85),
+        36px 0 0 rgba(120, 140, 93, 0.85);
+      margin-right: 36px;
+    }
+
+    .brand small {
+      display: block;
+      font-family: "Lora", Georgia, serif;
+      font-size: 0.8rem;
+      color: rgba(20, 20, 19, 0.66);
+    }
+
+    .top-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .link-chip,
+    .filter-chip,
+    .keyword-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.45);
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+      cursor: pointer;
+    }
+
+    .link-chip:hover,
+    .filter-chip:hover,
+    .keyword-chip:hover {
+      transform: translateY(-1px);
+      border-color: rgba(20, 20, 19, 0.22);
+    }
+
+    .hero {
+      padding: 64px 0 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-panel,
+    .hero-aside,
+    .controls,
+    .paper-section,
+    .empty-state {
+      position: relative;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .hero-panel {
+      padding: 34px;
+    }
+
+    .hero-panel::before,
+    .hero-aside::before,
+    .paper-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.55), transparent 30%),
+        radial-gradient(circle at top right, rgba(120, 140, 93, 0.08), transparent 24%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      background: rgba(20, 20, 19, 0.05);
+      color: rgba(20, 20, 19, 0.74);
+      font-family: "Poppins", Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(2.6rem, 4vw, 4.6rem);
+      line-height: 0.96;
+      max-width: 10ch;
+    }
+
+    .lead {
+      margin: 22px 0 28px;
+      font-size: 1.08rem;
+      line-height: 1.75;
+      max-width: 62ch;
+      color: rgba(20, 20, 19, 0.82);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-action {
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      font-family: "Poppins", Arial, sans-serif;
+      border: 1px solid transparent;
+    }
+
+    .hero-action.primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .hero-action.secondary {
+      background: transparent;
+      border-color: var(--border);
+    }
+
+    .hero-aside {
+      padding: 28px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.42);
+      border: 1px solid rgba(20, 20, 19, 0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-family: "Poppins", Arial, sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: rgba(20, 20, 19, 0.7);
+      font-size: 0.95rem;
+    }
+
+    .notes {
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background:
+        linear-gradient(135deg, rgba(217, 119, 87, 0.08), rgba(106, 155, 204, 0.08));
+      border: 1px solid rgba(20, 20, 19, 0.08);
+      line-height: 1.7;
+      color: rgba(20, 20, 19, 0.76);
+    }
+
+    .controls {
+      margin: 18px 0 28px;
+      padding: 22px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .controls-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search {
+      flex: 1 1 320px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.52);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+    }
+
+    .search svg {
+      flex: none;
+      color: rgba(20, 20, 19, 0.48);
+    }
+
+    .search input {
+      flex: 1;
+      border: 0;
+      background: transparent;
+      outline: 0;
+      min-width: 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-title p,
+    .paper-meta p,
+    .card-subline,
+    .footer-note {
+      margin: 0;
+      color: rgba(20, 20, 19, 0.7);
+    }
+
+    .filter-strip,
+    .keyword-strip {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip.active,
+    .keyword-chip.active {
+      border-color: transparent;
+      color: var(--paper);
+      background: var(--ink);
+    }
+
+    .filter-chip[data-accent="orange"].active {
+      background: var(--accent);
+    }
+
+    .filter-chip[data-accent="blue"].active {
+      background: var(--accent-blue);
+    }
+
+    .filter-chip[data-accent="green"].active {
+      background: var(--accent-green);
+    }
+
+    .paper-layout {
+      display: grid;
+      gap: 24px;
+      padding-bottom: 56px;
+    }
+
+    .paper-section {
+      padding: 22px;
+    }
+
+    .paper-section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .paper-section-header h2 {
+      font-size: clamp(1.35rem, 1.8vw, 1.85rem);
+    }
+
+    .paper-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    .paper-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.52);
+      border: 1px solid rgba(20, 20, 19, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .paper-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(20, 20, 19, 0.08);
+      border-color: rgba(20, 20, 19, 0.16);
+    }
+
+    .card-head {
+      display: grid;
+      gap: 10px;
+    }
+
+    .card-tagline {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mini-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-family: "Poppins", Arial, sans-serif;
+      background: rgba(20, 20, 19, 0.06);
+      color: rgba(20, 20, 19, 0.72);
+    }
+
+    .mini-tag.category {
+      background: rgba(217, 119, 87, 0.12);
+      color: #95462c;
+    }
+
+    .mini-tag.venue {
+      background: rgba(106, 155, 204, 0.12);
+      color: #325b86;
+    }
+
+    .paper-card h3 {
+      font-size: 1.16rem;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .paper-meta {
+      display: grid;
+      gap: 8px;
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .paper-meta strong {
+      font-family: "Poppins", Arial, sans-serif;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: rgba(20, 20, 19, 0.56);
+    }
+
+    .keyword-list,
+    .link-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .keyword {
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      background: rgba(120, 140, 93, 0.11);
+      color: #4f6140;
+      font-size: 0.84rem;
+    }
+
+    .link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--ink);
+      color: var(--paper);
+      font-family: "Poppins", Arial, sans-serif;
+      font-size: 0.86rem;
+    }
+
+    .link-pill.secondary {
+      background: rgba(20, 20, 19, 0.06);
+      color: var(--ink);
+    }
+
+    .empty-state {
+      display: none;
+      padding: 38px 26px;
+      margin-bottom: 56px;
+      text-align: center;
+    }
+
+    .empty-state.show {
+      display: block;
+    }
+
+    footer {
+      padding: 0 0 44px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .topbar-inner,
+      .controls-row,
+      .paper-section-header,
+      .section-title {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .hero-panel,
+      .hero-aside,
+      .controls,
+      .paper-section,
+      .empty-state {
+        border-radius: 24px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <strong>Awesome-LLM4Kernel</strong>
+          <small>Collecting the latest LLM4Kernel papers, keywords, tasks, and links</small>
+        </div>
+      </div>
+      <nav class="top-links" aria-label="Quick links">
+        <a class="link-chip" href="https://github.com/kcxain/Awesome-LLM4Kernel" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="link-chip" href="#papers">Browse papers</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <article class="hero-panel">
+        <div class="eyebrow">Latest paper collection</div>
+        <h1>Browse the LLM4Kernel landscape with better signal.</h1>
+        <p class="lead">
+          This page collects LLM4Kernel papers into a readable research index. Entries are grouped by benchmark
+          and method category, with searchable tasks, institutions, keywords, and direct paper or code links.
+        </p>
+        <div class="hero-actions">
+          <a class="hero-action primary" href="#papers">Start exploring</a>
+          <a class="hero-action secondary" href="https://github.com/kcxain/Awesome-LLM4Kernel/issues/new" target="_blank" rel="noreferrer">Suggest an update</a>
+        </div>
+      </article>
+
+      <aside class="hero-aside">
+        <div class="section-title">
+          <div>
+            <h2>Collection snapshot</h2>
+            <p>A quick summary of the current paper collection.</p>
+          </div>
+        </div>
+        <div class="stats-grid" id="stats-grid">
+          <div class="stat"><strong id="stat-papers">0</strong><span>Entries indexed</span></div>
+          <div class="stat"><strong id="stat-categories">0</strong><span>Visible categories</span></div>
+          <div class="stat"><strong id="stat-papers-link">0</strong><span>Paper links</span></div>
+          <div class="stat"><strong id="stat-code-link">0</strong><span>Code or blog links</span></div>
+        </div>
+        <div class="notes">
+          This index is designed to help readers scan the LLM4Kernel landscape quickly, compare categories,
+          and jump from each paper card to the original paper, codebase, or project page.
+        </div>
+      </aside>
+    </section>
+
+    <section class="controls" id="papers">
+      <div class="controls-row">
+        <label class="search" for="search-input">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Zm10 2-5.2-5.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Search by title, author, institution, task, or keyword"
+            autocomplete="off"
+          >
+        </label>
+      </div>
+
+      <div>
+        <div class="section-title">
+          <div>
+            <h2>Categories</h2>
+            <p>Filter the collection by benchmark and method family.</p>
+          </div>
+          <p class="footer-note" id="result-count">0 results</p>
+        </div>
+        <div class="filter-strip" id="category-filters"></div>
+      </div>
+
+      <div>
+        <div class="section-title">
+          <div>
+            <h2>Keyword focus</h2>
+            <p>Quick filters inferred from venue and task descriptions.</p>
+          </div>
+        </div>
+        <div class="keyword-strip" id="keyword-filters"></div>
+      </div>
+    </section>
+
+    <section class="paper-layout" id="paper-layout" aria-live="polite"></section>
+
+    <section class="empty-state" id="empty-state">
+      <h2>No entries match the current filters.</h2>
+      <p class="lead">Try a broader keyword, switch categories, or clear the search query.</p>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <p class="footer-note">
+      Copyright Changxin Ke, contact: <a href="mailto:kcxain@gmail.com">kcxain@gmail.com</a>
+    </p>
+  </footer>
+
+  <script>
+    const CATEGORY_META = {
+      All: { accent: "orange", description: "Everything in the collection." },
+      Benchmarks: { accent: "orange", description: "Evaluation suites and benchmark datasets." },
+      "Search-based Pipelines": { accent: "blue", description: "Search, bandit, and optimization-first pipelines." },
+      "Agent-based Pipelines": { accent: "green", description: "Multi-agent or memory-augmented systems." },
+      "Domain-specific Models": { accent: "blue", description: "Specialized models for kernel generation." },
+      "Agentic RL": { accent: "orange", description: "RL-driven agentic approaches for kernels." }
+    };
+
+    const state = {
+      papers: [],
+      query: "",
+      category: "All",
+      keyword: "All"
+    };
+
+    const refs = {
+      layout: document.getElementById("paper-layout"),
+      emptyState: document.getElementById("empty-state"),
+      searchInput: document.getElementById("search-input"),
+      categoryFilters: document.getElementById("category-filters"),
+      keywordFilters: document.getElementById("keyword-filters"),
+      resultCount: document.getElementById("result-count"),
+      statPapers: document.getElementById("stat-papers"),
+      statCategories: document.getElementById("stat-categories"),
+      statPaperLink: document.getElementById("stat-papers-link"),
+      statCodeLink: document.getElementById("stat-code-link")
+    };
+
+    init();
+
+    async function init() {
+      bindEvents();
+      try {
+        const response = await fetch("./README.md", { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error("Unable to load README.md");
+        }
+        const markdown = await response.text();
+        state.papers = parseMarkdown(markdown);
+        render();
+      } catch (error) {
+        refs.layout.innerHTML = "";
+        refs.emptyState.classList.add("show");
+        refs.emptyState.innerHTML = [
+          "<h2>Paper data could not be loaded.</h2>",
+          "<p class=\"lead\">Refresh the page or check whether the paper list is available.</p>"
+        ].join("");
+      }
+    }
+
+    function bindEvents() {
+      refs.searchInput.addEventListener("input", (event) => {
+        state.query = event.target.value.trim().toLowerCase();
+        render();
+      });
+    }
+
+    function parseMarkdown(markdown) {
+      const lines = markdown.replace(/\r/g, "").split("\n");
+      const papers = [];
+      let category = "";
+      let entry = null;
+
+      function finalizeEntry() {
+        if (!entry || !entry.headerParts.length) {
+          entry = null;
+          return;
+        }
+
+        const header = entry.headerParts.join(" ").replace(/\s+/g, " ").trim();
+        const titleMatch = header.match(/\*\*(.*?)\*\*/);
+        const title = titleMatch ? titleMatch[1].trim() : header.replace(/^-+\s*/, "").trim();
+        const links = extractLinks(header);
+        const venue = deriveVenue(links);
+        const normalizedCategory = normalizeCategory(entry.category);
+        const keywords = deriveKeywords({
+          category: normalizedCategory,
+          task: entry.task,
+          venue,
+          title
+        });
+
+        papers.push({
+          title,
+          authors: entry.authors,
+          institution: entry.institution,
+          task: entry.task,
+          links,
+          venue,
+          category: normalizedCategory,
+          keywords
+        });
+
+        entry = null;
+      }
+
+      for (const rawLine of lines) {
+        const trimmed = rawLine.trim();
+
+        if (/^##\s+/.test(trimmed)) {
+          if (trimmed.includes("Benchmarks")) {
+            finalizeEntry();
+            category = "Benchmarks";
+            continue;
+          }
+
+          if (trimmed.includes("Method")) {
+            finalizeEntry();
+            continue;
+          }
+
+          if (trimmed.includes("Contribution") || trimmed.includes("Citation")) {
+            finalizeEntry();
+            break;
+          }
+        }
+
+        if (/^###\s+/.test(trimmed)) {
+          finalizeEntry();
+          category = trimmed.replace(/^###\s+/, "").trim();
+          continue;
+        }
+
+        if (!isTargetCategory(category)) {
+          continue;
+        }
+
+        if (/^\s*-\s+\*\*Institution:\*\*/.test(rawLine)) {
+          if (entry) {
+            entry.institution = trimmed.replace(/^-+\s+\*\*Institution:\*\*\s*/, "").trim();
+          }
+          continue;
+        }
+
+        if (/^\s*-\s+\*\*Task:\*\*/.test(rawLine)) {
+          if (entry) {
+            entry.task = trimmed.replace(/^-+\s+\*\*Task:\*\*\s*/, "").trim();
+          }
+          continue;
+        }
+
+        if (/^\s*-\s+\*\*/.test(rawLine) && !trimmed.startsWith("- **Institution:**") && !trimmed.startsWith("- **Task:**")) {
+          finalizeEntry();
+          entry = {
+            category,
+            headerParts: [trimmed],
+            authors: "",
+            institution: "",
+            task: ""
+          };
+          continue;
+        }
+
+        if (entry && trimmed.startsWith("[![")) {
+          entry.headerParts.push(trimmed);
+          continue;
+        }
+
+        if (entry && (/^\t-\s+/.test(rawLine) || /^ {2,}-\s+/.test(rawLine))) {
+          if (!trimmed.startsWith("- **") && !entry.authors) {
+            entry.authors = trimmed.replace(/^-+\s*/, "").trim();
+          }
+        }
+      }
+
+      finalizeEntry();
+      return papers;
+    }
+
+    function isTargetCategory(category) {
+      return [
+        "Benchmarks",
+        "Search-based piplines",
+        "Agent-based pipelines",
+        "Domain-specific Models",
+        "Agentic RL"
+      ].includes(category);
+    }
+
+    function normalizeCategory(category) {
+      if (category === "Search-based piplines") {
+        return "Search-based Pipelines";
+      }
+      if (category === "Agent-based pipelines") {
+        return "Agent-based Pipelines";
+      }
+      return category;
+    }
+
+    function extractLinks(header) {
+      const links = [];
+      const pattern = /\[\!\[(.*?)\]\((.*?)\)\]\((.*?)\)/g;
+      let match;
+      while ((match = pattern.exec(header)) !== null) {
+        links.push({
+          label: match[1].trim(),
+          badge: match[2].trim(),
+          url: match[3].trim()
+        });
+      }
+      return links;
+    }
+
+    function deriveVenue(links) {
+      const paperLink = links.find((link) => link.label.toLowerCase() === "paper" || link.label.toLowerCase() === "blog");
+      if (!paperLink || !paperLink.badge.includes("/badge/")) {
+        return "";
+      }
+
+      const encoded = paperLink.badge.split("/badge/")[1] || "";
+      const pieces = decodeURIComponent(encoded).split("-");
+      if (pieces.length > 1) {
+        pieces.pop();
+      }
+      while (pieces.length && /^\d+(\.\d+)?$/u.test(pieces[pieces.length - 1])) {
+        pieces.pop();
+      }
+      return pieces.join(" ").replace(/_/g, " ").trim();
+    }
+
+    function deriveKeywords(entry) {
+      const keywords = new Set([entry.category]);
+
+      if (entry.venue && !isGenericVenue(entry.venue)) {
+        keywords.add(entry.venue);
+      }
+
+      if (entry.task) {
+        tokenizeTask(entry.task).forEach((token) => keywords.add(token));
+        if (entry.task.includes("<->")) {
+          keywords.add("Bidirectional Translation");
+        }
+      }
+
+      const titleSignals = ["CUDA", "Triton", "AscendC", "RL", "Benchmark", "Optimization", "Attention", "GEMM", "Tensor"];
+      for (const signal of titleSignals) {
+        if (entry.title.toLowerCase().includes(signal.toLowerCase())) {
+          keywords.add(signal);
+        }
+      }
+
+      return Array.from(keywords).slice(0, 6);
+    }
+
+    function isGenericVenue(venue) {
+      const normalized = venue.trim().toLowerCase();
+      return normalized.startsWith("arxiv")
+        || normalized.startsWith("aixiv")
+        || normalized.startsWith("blog");
+    }
+
+    function tokenizeTask(task) {
+      return task
+        .replace(/<->/g, "|")
+        .replace(/->/g, "|")
+        .split(/\||\+|\//)
+        .map((token) => token.replace(/[()<>]/g, "").replace(/\s+/g, " ").trim())
+        .filter(Boolean);
+    }
+
+    function getFilteredPapers() {
+      return state.papers.filter((paper) => {
+        const matchesCategory = state.category === "All" || paper.category === state.category;
+        const matchesKeyword = state.keyword === "All" || paper.keywords.includes(state.keyword);
+        const haystack = [
+          paper.title,
+          paper.authors,
+          paper.institution,
+          paper.task,
+          paper.category,
+          paper.venue,
+          paper.keywords.join(" ")
+        ].join(" ").toLowerCase();
+        const matchesQuery = !state.query || haystack.includes(state.query);
+        return matchesCategory && matchesKeyword && matchesQuery;
+      });
+    }
+
+    function getKeywordOptions() {
+      const visiblePapers = state.category === "All"
+        ? state.papers
+        : state.papers.filter((paper) => paper.category === state.category);
+
+      const counts = new Map();
+      for (const paper of visiblePapers) {
+        for (const keyword of paper.keywords) {
+          counts.set(keyword, (counts.get(keyword) || 0) + 1);
+        }
+      }
+
+      return Array.from(counts.entries())
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .slice(0, 18)
+        .map(([keyword]) => keyword);
+    }
+
+    function buildCategoryFilters() {
+      const counts = new Map([["All", state.papers.length]]);
+      for (const paper of state.papers) {
+        counts.set(paper.category, (counts.get(paper.category) || 0) + 1);
+      }
+
+      refs.categoryFilters.innerHTML = Array.from(counts.entries()).map(([category, count]) => {
+        const meta = CATEGORY_META[category] || { accent: "orange" };
+        const active = state.category === category ? "active" : "";
+        return [
+          "<button",
+          " type=\"button\"",
+          " class=\"filter-chip " + active + "\"",
+          " data-category=\"" + escapeHtml(category) + "\"",
+          " data-accent=\"" + meta.accent + "\"",
+          ">",
+          "<span>" + escapeHtml(category) + "</span>",
+          "<span>" + count + "</span>",
+          "</button>"
+        ].join("");
+      }).join("");
+
+      refs.categoryFilters.querySelectorAll("[data-category]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.category = button.dataset.category;
+          if (state.keyword !== "All" && !getKeywordOptions().includes(state.keyword)) {
+            state.keyword = "All";
+          }
+          render();
+        });
+      });
+    }
+
+    function buildKeywordFilters() {
+      const keywords = ["All"].concat(getKeywordOptions());
+      refs.keywordFilters.innerHTML = keywords.map((keyword) => {
+        const active = state.keyword === keyword ? "active" : "";
+        return [
+          "<button",
+          " type=\"button\"",
+          " class=\"keyword-chip " + active + "\"",
+          " data-keyword=\"" + escapeHtml(keyword) + "\"",
+          ">",
+          escapeHtml(keyword),
+          "</button>"
+        ].join("");
+      }).join("");
+
+      refs.keywordFilters.querySelectorAll("[data-keyword]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.keyword = button.dataset.keyword;
+          render();
+        });
+      });
+    }
+
+    function render() {
+      buildCategoryFilters();
+      buildKeywordFilters();
+
+      const filtered = getFilteredPapers();
+      const grouped = groupByCategory(filtered);
+
+      refs.layout.innerHTML = Object.entries(grouped).map(([category, papers]) => {
+        const meta = CATEGORY_META[category] || { description: "" };
+        return [
+          "<section class=\"paper-section\" id=\"" + slugify(category) + "\">",
+          "<div class=\"paper-section-header\">",
+          "<div>",
+          "<h2>" + escapeHtml(category) + "</h2>",
+          "<p class=\"card-subline\">" + escapeHtml(meta.description) + "</p>",
+          "</div>",
+          "<p class=\"footer-note\">" + papers.length + " entries</p>",
+          "</div>",
+          "<div class=\"paper-grid\">",
+          papers.map(renderPaperCard).join(""),
+          "</div>",
+          "</section>"
+        ].join("");
+      }).join("");
+
+      refs.emptyState.classList.toggle("show", filtered.length === 0);
+      refs.resultCount.textContent = filtered.length + " results";
+      updateStats(filtered);
+    }
+
+    function groupByCategory(papers) {
+      const order = [
+        "Benchmarks",
+        "Search-based Pipelines",
+        "Agent-based Pipelines",
+        "Domain-specific Models",
+        "Agentic RL"
+      ];
+
+      const grouped = {};
+      for (const name of order) {
+        const matches = papers.filter((paper) => paper.category === name);
+        if (matches.length) {
+          grouped[name] = matches;
+        }
+      }
+      return grouped;
+    }
+
+    function renderPaperCard(paper) {
+      const linkMarkup = paper.links.map((link) => {
+        const secondary = link.label.toLowerCase() === "code" ? " secondary" : "";
+        return [
+          "<a class=\"link-pill" + secondary + "\" href=\"" + escapeAttribute(link.url) + "\" target=\"_blank\" rel=\"noreferrer\">",
+          escapeHtml(link.label),
+          "</a>"
+        ].join("");
+      }).join("");
+
+      const extraTags = [];
+      extraTags.push("<span class=\"mini-tag category\">" + escapeHtml(shortCategory(paper.category)) + "</span>");
+      if (paper.venue) {
+        extraTags.push("<span class=\"mini-tag venue\">" + escapeHtml(paper.venue) + "</span>");
+      }
+
+      return [
+        "<article class=\"paper-card\">",
+        "<div class=\"card-head\">",
+        "<div class=\"card-tagline\">" + extraTags.join("") + "</div>",
+        "<h3>" + escapeHtml(paper.title) + "</h3>",
+        "</div>",
+        "<div class=\"card-body\">",
+        "<div class=\"paper-meta\">",
+        paper.authors ? "<p><strong>Authors</strong><br>" + escapeHtml(paper.authors) + "</p>" : "",
+        paper.institution ? "<p><strong>Institution</strong><br>" + escapeHtml(paper.institution) + "</p>" : "",
+        paper.task ? "<p><strong>Task</strong><br>" + escapeHtml(paper.task) + "</p>" : "",
+        "</div>",
+        "<div>",
+        "<p class=\"card-subline\">Keywords</p>",
+        "<div class=\"keyword-list\">",
+        paper.keywords.map((keyword) => "<span class=\"keyword\">" + escapeHtml(keyword) + "</span>").join(""),
+        "</div>",
+        "</div>",
+        "<div>",
+        "<p class=\"card-subline\">Links</p>",
+        "<div class=\"link-list\">" + linkMarkup + "</div>",
+        "</div>",
+        "</div>",
+        "</article>"
+      ].join("");
+    }
+
+    function updateStats(filteredPapers) {
+      refs.statPapers.textContent = filteredPapers.length;
+      refs.statCategories.textContent = new Set(filteredPapers.map((paper) => paper.category)).size;
+      refs.statPaperLink.textContent = filteredPapers.filter((paper) =>
+        paper.links.some((link) => link.label.toLowerCase() === "paper")
+      ).length;
+      refs.statCodeLink.textContent = filteredPapers.filter((paper) =>
+        paper.links.some((link) => ["code", "blog"].includes(link.label.toLowerCase()))
+      ).length;
+    }
+
+    function shortCategory(category) {
+      if (category === "Search-based Pipelines") return "Search";
+      if (category === "Agent-based Pipelines") return "Agents";
+      if (category === "Domain-specific Models") return "Models";
+      return category;
+    }
+
+    function slugify(value) {
+      return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll("\"", "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function escapeAttribute(value) {
+      return escapeHtml(value);
+    }
+  </script>
+</body>
+</html>
