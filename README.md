@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-[![Paper](https://img.shields.io/badge/Paper-29-green.svg)](https://github.com/kcxain/Awesome-LLM4Kernel)
+[![Paper](https://img.shields.io/badge/Paper-35-green.svg)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Last Commit](https://img.shields.io/github/last-commit/kcxain/Awesome-LLM4Kernel)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Website](https://img.shields.io/badge/Website-Live-orange)](https://kechang.xin/Awesome-LLM4Kernel/)
 [![Contribution Welcome](https://img.shields.io/badge/Contributions-welcome-blue)]()
@@ -25,6 +25,11 @@ We include all relevant top conference papers, arXiv preprints, open source proj
 Online page: https://kechang.xin/Awesome-LLM4Kernel/
 
 ## 📖 Benchmarks
+
+- **SOL-ExecBench: Speed-of-Light Benchmarking for Real-World GPU Kernels Against Hardware Limits** [![Paper](https://img.shields.io/badge/arXiv-26.03-red)](https://arxiv.org/abs/2603.19173) [![Code](https://img.shields.io/github/stars/NVIDIA/SOL-ExecBench)](https://github.com/NVIDIA/SOL-ExecBench)  
+	- Edward Lin, Sahil Modi, Siva Kumar Sastry Hari, Qijing Huang, Zhifan Ye, Nestor Qin, Fengzhe Zhou, Yuan Zhang, Jingquan Wang, Sana Damani, Dheeraj Peri, Ouye Xie, Aditya Kane, Moshe Maor, Michael Behar, Triston Cao, Rishabh Mehta, Vartika Singh, Vikram Sharma Mailthody, Terry Chen, Zihao Ye, Hanfeng Chen, Tianqi Chen, Vinod Grover, Wei Chen, Wei Liu, Eric Chung, Luis Ceze, Roger Bringmann, Cyril Zeller, Michael Lightstone, Christos Kozyrakis, Humphrey Shi
+	- **Institution:** NVIDIA
+	- **Task:** CUDA Kernel Optimization Benchmarking
 
 - **FlashInfer-Bench: Building the Virtuous Cycle for AI-driven LLM Systems** [![Paper](https://img.shields.io/badge/arXiv-26.01-red)](https://arxiv.org/abs/2601.00227v1) [![Code](https://img.shields.io/github/stars/flashinfer-ai/flashinfer-bench)](https://github.com/flashinfer-ai/flashinfer-bench)  
 	- Shanli Xing, Yiyan Zhai, Alexander Jiang, Yixin Dong, Yong Wu, Zihao Ye, Charlie Ruan, Yingyi Huang, Yineng Zhang, Liangsheng Yin, Aksara Bayyapu, Luis Ceze, Tianqi Chen
