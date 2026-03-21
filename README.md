@@ -5,6 +5,7 @@
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![Paper](https://img.shields.io/badge/Paper-29-green.svg)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Last Commit](https://img.shields.io/github/last-commit/kcxain/Awesome-LLM4Kernel)](https://github.com/kcxain/Awesome-LLM4Kernel)
+[![Website](https://img.shields.io/badge/Website-Live-orange)](https://kechang.xin/Awesome-LLM4Kernel/)
 [![Contribution Welcome](https://img.shields.io/badge/Contributions-welcome-blue)]()
 
 </div>
@@ -20,6 +21,8 @@ This project provides a continuous and comprehensive survey of the field, coveri
  - Agentic RL
 
 We include all relevant top conference papers, arXiv preprints, open source projects, technical reports, and blogs, aiming to build the most complete resource hub for LLM4Kernel research.
+
+Online page: https://kechang.xin/Awesome-LLM4Kernel/
 
 ## 📖 Benchmarks
 
