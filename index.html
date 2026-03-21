@@ -311,6 +311,9 @@
       background: transparent;
       outline: 0;
       min-width: 0;
+      -webkit-appearance: none;
+      appearance: none;
+      line-height: 1.3;
     }
 
     .section-title {
@@ -515,6 +518,11 @@
     @media (max-width: 640px) {
       .shell {
         width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .search {
+        flex: none;
+        width: 100%;
       }
 
       .topbar-inner,
