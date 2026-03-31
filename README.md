@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-[![Paper](https://img.shields.io/badge/Paper-74-green.svg)](https://github.com/kcxain/Awesome-LLM4Kernel)
+[![Paper](https://img.shields.io/badge/Paper-75-green.svg)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Last Commit](https://img.shields.io/github/last-commit/kcxain/Awesome-LLM4Kernel)](https://github.com/kcxain/Awesome-LLM4Kernel)
 [![Website](https://img.shields.io/badge/Website-Live-orange)](https://kechang.xin/Awesome-LLM4Kernel/)
 [![Contribution Welcome](https://img.shields.io/badge/Contributions-welcome-blue)]()
@@ -84,9 +84,6 @@ Online page: https://kechang.xin/Awesome-LLM4Kernel/
 	- **Institution:** Advanced Micro Devices
 	- **Task:** NL -> NPU Kernel
 
-- **ConCuR: Conciseness Makes State-of-the-Art Kernel Generation** [![Paper](https://img.shields.io/badge/arXiv-25.10-red)](https://arxiv.org/abs/2510.07356) [![Model](https://img.shields.io/badge/Model-HuggingFace-yellow)](https://huggingface.co/lkongam/KernelCoder)  
-	- **Task:** Torch -> CUDA
-
 - **CUDABench: Benchmarking LLMs for Text-to-CUDA Generation** [![Paper](https://img.shields.io/badge/arXiv-26.03-red)](https://arxiv.org/abs/2603.02236) [![Code](https://img.shields.io/github/stars/CUDA-Bench/CUDABench)](https://github.com/CUDA-Bench/CUDABench)  
 	- Jiace Zhu, Wentao Chen, Qi Fan, Zhixing Ren, Junying Wu, Xing Zhe Chai, Chotiwit Rungrueangwutthinon, Yehan Ma, An Zou
 	- **Institution:** Shanghai Jiao Tong University
@@ -161,6 +158,11 @@ Online page: https://kechang.xin/Awesome-LLM4Kernel/
 	- Jiefu Ou, Sapana Chaudhary, Kaj Bostrom, Nathaniel Weir, Shuai Zhang, Huzefa Rangwala, George Karypis
 	- **Institution:** Johns Hopkins University, Amazon Web Services
 	- **Task:** CUDA | C++ Optimization
+
+- **AVO: Agentic Variation Operators for Autonomous Evolutionary Search** [![Paper](https://img.shields.io/badge/arXiv-26.03-red)](https://arxiv.org/abs/2603.24517)  
+	- Terry Chen, Zhifan Ye, Bing Xu, Zihao Ye, Timmy Liu, Ali Hassani, Tianqi Chen, Andrew Kerr, Haicheng Wu, Yang Xu, Yu-Jung Chen, Hanfeng Chen, Aditya Kane, Ronny Krashinsky, Ming-Yu Liu, Vinod Grover, Luis Ceze, Roger Bringmann, John Tran, Wei Liu, Fung Xie, Michael Lightstone, Humphrey Shi  
+	- **Institution:** NVIDIA  
+	- **Task:** Attention CUDA Kernel Optimization
 
 ### Agent-based pipelines
 
@@ -333,6 +335,9 @@ Online page: https://kechang.xin/Awesome-LLM4Kernel/
 	- Zixian Wang, Cole Ramos, Muhammad A. Awad, Keith Lowery
 	- **Institution:** University of Illinois Urbana-Champaign, AMD
 	- **Task:** CUDA -> Performance Metrics
+
+- **ConCuR: Conciseness Makes State-of-the-Art Kernel Generation** [![Paper](https://img.shields.io/badge/arXiv-25.10-red)](https://arxiv.org/abs/2510.07356) [![Model](https://img.shields.io/badge/Model-HuggingFace-yellow)](https://huggingface.co/lkongam/KernelCoder)  
+	- **Task:** Torch -> CUDA
 
 ### Agentic RL
 
